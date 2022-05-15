@@ -1,10 +1,15 @@
+// Set requirements (Express Router)
 const router = require('express').Router();
-const userRoutes = require('./user-routes');
 
-router.use('/', userRoutes);
+// Set routes (user and thought routes)
+const usersRoutes = require('./user-routes');
+const thoughtsRoutes = require('./thought-routes');
 
-router.use((req, res) => {
-    res.status(404).send('<h1>404 Error!</h1>');
-})
+// Add `/users` to created routes 
+router.use('/users', usersRoutes);
 
+// Add `/thoughts` to created routes 
+router.use('/thoughts', thoughtsRoutes);
+
+// Export Module Router
 module.exports = router;
